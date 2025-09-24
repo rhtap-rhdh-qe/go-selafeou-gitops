@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-selafeou-gitops
+  description: This is GitOps manifest for go-selafeou   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-selafeou
+    backstage.io/kubernetes-id: go-selafeou 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-selafeou
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-selafeou
